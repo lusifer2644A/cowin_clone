@@ -11,9 +11,19 @@ const router = express.Router();
 //import models
 const { User } = require("../../models/User");
 const { Otp } = require("../../models/Otp");
+const auth = require("../../middleware/auth");
 
-router.get("/", (req, res) => {
-    res.send("auth route");
+//type GET /api/auth
+//desc phone verification route
+//@access Public
+router.get("/", auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id);
+        res.json(user);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Server Error");
+    }
 });
 
 //type POST /api/auth
@@ -29,11 +39,14 @@ router.post(
 
         const number = req.body.number;
 
-        // const user = await User.findOne({
-        //     number: number,
-        // });
+        let user = await User.findOne({
+            number: number,
+        });
 
-        // if (user) return res.status(400).send("User already registered!");
+        if (!user) {
+            user = await new User({ number });
+            user.save();
+        }
 
         const OTP = otpGenerator.generate(6, {
             digits: true,
@@ -60,7 +73,7 @@ router.post(
         req.query({
             authorization: config.get("SMS_API_KEY"),
             sender_id: "cowin",
-            message: `Your OTP for CO-WIN login is ${OTP}. \nThank You.`,
+            msg: `Your OTP for CO-WIN login is ${OTP}. \nThank You.`,
             language: "english",
             variables_values: OTP,
             route: "otp",
@@ -75,7 +88,7 @@ router.post(
             if (res.error) throw new Error(res.error);
         });
 
-        return res.status(200).send("OTP sent successfully!");
+        return res.status(200).json({ msg: "OTP sent successfully!" });
     }
 );
 
@@ -99,7 +112,7 @@ router.post(
         });
 
         if (otpHolder.length === 0)
-            return res.status(400).send("You use an expired OTP!");
+            return res.status(400).json({ msg: "You use an expired OTP!" });
 
         const lastOtp = otpHolder[otpHolder.length - 1];
         const validUser = await bcrypt.compare(otp, lastOtp.otp);
@@ -136,11 +149,11 @@ router.post(
                     if (err) throw err;
                     return res.status(200).json({
                         token: token,
-                        message: "User successfully verified!!",
+                        msg: "User successfully verified!!",
                     });
                 }
             );
-        } else return res.status(400).send("Your OTP was wrong!");
+        } else return res.status(400).json({ msg: "Your OTP was wrong!" });
     }
 );
 

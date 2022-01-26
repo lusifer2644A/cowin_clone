@@ -1,0 +1,14 @@
+export const SET_ALERT = "SET_ALERT";
+export const REMOVE_ALERT = "REMOVE_ALERT";
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_FAIL = "REGISTER_FAIL";
+export const TEMP_NUMBER = "TEMP_NUMBER";
+export const USER_LOADED = "USER_LOADED";
+export const AUTH_ERROR = "AUTH_ERROR";
+export const MEMBERS_LOADED = "MEMBERS_LOADED";
+export const MEMBERS_LOAD_ERROR = "MEMBERS_LOAD_ERROR";
+export const MEMBERS_ADDED = "MEMBERS_ADDED";
+export const MEMBERS_ADD_ERROR = "MEMBERS_ADD_ERROR";
+export const DOSE_ADDED = "DOSE_ADDED";
+export const DOSE_ADD_ERROR = "DOSE_ADD_ERROR";
+export const LOGOUT = "LOGOUT";

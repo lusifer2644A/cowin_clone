@@ -1,0 +1,1 @@
+1. change account details font in dashboard.js to x-larges

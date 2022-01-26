@@ -27,10 +27,19 @@ const MemberSchema = new Schema({
         required: true,
     },
     dose1: {
+        registered: {
+            type: Boolean,
+            default: false,
+            required: true,
+        },
+        taken: {
+            type: Boolean,
+            default: false,
+        },
         vaccineName: {
             type: String,
         },
-        address: {
+        center: {
             type: String,
         },
         date: {
@@ -41,10 +50,19 @@ const MemberSchema = new Schema({
         },
     },
     dose2: {
+        registered: {
+            type: Boolean,
+            default: false,
+            required: true,
+        },
+        taken: {
+            type: Boolean,
+            default: false,
+        },
         vaccineName: {
             type: String,
         },
-        address: {
+        center: {
             type: String,
         },
         date: {
