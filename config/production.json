@@ -1,0 +1,5 @@
+{
+    "mongoURI": "mongodb+srv://ankit123:ankit123@cluster0.w4xho.mongodb.net/Cowin?retryWrites=true&w=majority",
+    "JWT_SECRET_KEY": "ankit123",
+    "SMS_API_KEY": "5ny170TVtJPaBKNIRuevpQLsbOUiEYx9Xl3f8zqMjm6DCo4chrgA5I7vU91F6Q3KiOVSc8yHDlEkJGZu"
+}
