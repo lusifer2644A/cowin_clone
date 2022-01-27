@@ -3,6 +3,7 @@ import {
     DOSE_ADD_ERROR,
     MEMBERS_LOADED,
     MEMBERS_LOAD_ERROR,
+    LOGOUT,
 } from "../actions/types";
 
 const initialState = [];
@@ -21,6 +22,8 @@ export default function (state = initialState, { type, payload }) {
             return state;
         case DOSE_ADD_ERROR:
             return state;
+        case LOGOUT:
+            return [];
         default:
             return state;
     }

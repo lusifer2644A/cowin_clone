@@ -16,9 +16,9 @@ const Dashboard = ({ auth, loadMembersData, loadUser }) => {
     }, []);
 
     return (
-        <div className="container">
+        <div className="dashboard_container">
             <div className="members_block">
-                <div className="primary-color medium bold">Account Details</div>
+                <div className="primary-color large bold">Account Details</div>
                 <div className="x-small">
                     Registered Mobile Number:{" "}
                     <span>{auth.user ? auth.user.number : ""}</span>{" "}

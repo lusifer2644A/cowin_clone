@@ -23,7 +23,6 @@ const DoseForm = ({ addNewDose }) => {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        console.log("Dose Adding");
         const newDose = {
             id: params.memberId,
             registered: true,

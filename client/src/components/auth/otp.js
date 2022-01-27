@@ -26,7 +26,7 @@ const OTP = ({ temp, auth, setAlert, verifyOTP }) => {
         } else {
             verifyOTP({ otp, number });
             setAlert("Loading", "success");
-            return history.push("/dashboard");
+            history.push("/dashboard");
         }
     };
 

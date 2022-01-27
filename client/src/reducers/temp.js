@@ -1,4 +1,4 @@
-import { TEMP_NUMBER } from "../actions/types";
+import { TEMP_NUMBER, LOGOUT } from "../actions/types";
 
 const initialState = {
     number: null,
@@ -11,6 +11,8 @@ export default function (state = initialState, { type, payload }) {
             return {
                 number: payload,
             };
+        case LOGOUT:
+            return { number: null };
         default:
             return state;
     }

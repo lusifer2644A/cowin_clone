@@ -36,10 +36,10 @@ export default function (state = initialState, { type, payload }) {
         case LOGOUT:
             localStorage.removeItem("token");
             return {
-                ...state,
                 token: null,
                 isAuthenticated: false,
                 loading: false,
+                user: null,
             };
         default:
             return state;

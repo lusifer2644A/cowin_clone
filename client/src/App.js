@@ -20,7 +20,7 @@ import Alert from "./components/layouts/Alert";
 import { Provider } from "react-redux";
 import store from "./store";
 import Dashboard from "./components/dashboard/Dashboard";
-import { loadUser } from "./actions/auth";
+import { loadUser, logout } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
 import NotFound from "./components/auth/NotFound";
 import PrivateRoute from "./components/routing/PrivateRoute";
@@ -57,7 +57,7 @@ const App = () => {
                             path="/addmember"
                             component={MemberForm}
                         />
-                        <Route
+                        <PrivateRoute
                             exact
                             path="/register-vaccination/member/:memberId/dose/:doseName"
                             component={DoseForm}

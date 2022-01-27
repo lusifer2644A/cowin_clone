@@ -30,7 +30,11 @@ const Member = ({ members }) => {
             {member.dose1.registered && (
                 <>
                     <hr className="hrdashed" />
-                    <Dose name="Dose 2" details={member.dose2} />
+                    <Dose
+                        name="Dose 2"
+                        details={member.dose2}
+                        member={member}
+                    />
                 </>
             )}
         </div>

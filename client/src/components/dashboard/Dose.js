@@ -13,6 +13,7 @@ const Dose = ({ name, details, member }) => {
             <button
                 className="btn btn-primary btn-small"
                 onClick={() => {
+                    console.log("pusshing", member);
                     history.push(
                         `/register-vaccination/member/${member._id}/dose/${
                             member.dose1.registered === false

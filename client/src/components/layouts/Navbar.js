@@ -33,7 +33,7 @@ const Navbar = ({ auth, logout }) => {
 
     return (
         <nav className="navbar">
-            <div className="navLogo"></div>
+            <div className="navLogo large white"></div>
             {auth.isAuthenticated ? authLinks : guestLinks}
         </nav>
     );

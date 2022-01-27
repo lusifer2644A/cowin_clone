@@ -1,1 +1,5 @@
-1. change account details font in dashboard.js to x-larges
+1. change account details font in dashboard.js to x-larges -----------sorted
+2. RELOADING dashboard ALWAYS PROBLEM -----------------------sorted
+3. dose2 register check in dashboard -----------------------sorted
+4. dashboard always goes UP CSS problem.
+5. previous user data revived problem in redux3
